@@ -1,7 +1,10 @@
 # Project specifics
 Document status: Draft
+
 Manager: ropelews@psc.edu
+
 Developer: blearn@psc.edu
+
 Last Updated: 4/2/2019
 
 # Terminology definitions
