@@ -1,4 +1,8 @@
+# Project specifics
 Document status: Draft
+Manager: ropelews@psc.edu
+Developer: blearn@psc.edu
+Last Updated: 4/2/2019
 
 # Terminology definitions
 * Document Types
@@ -20,9 +24,11 @@ Document status: Draft
 | File Upload | A user wants to upload a new document | Must Have | |
 | File Comment | A user wants to add a comment about a document in the system | Must Have | |
 | File Search | A user wants to search for a document in the system | Must Have | |
+| View File | A user wants to view an existing document in a web browser | Should Have | Need to determine what filetypes we want/can support for web viewing. |
+| Compute in Place | A user wants to select multiple Science Data documents from this system, then initiate a compute job on Bridges that uses the selected documents | Should Have | This needs more discussion. We may want to tie this feature to documented workflows. E.g. 'Select a workflow; select data files; begin compute'. |
 
 # User interaction & design
-TODO after more user stories.
+TODO: design mockups for UI based on user stories. 
 
 # Questions, clairifcations, & scope
 
