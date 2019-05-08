@@ -6,7 +6,7 @@ var myldap = require('./basicAuth.js');
 
 const port = 8000;
 
-app.use(express.static('public'));
+app.use(express.static('aurora-master'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
