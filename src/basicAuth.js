@@ -90,6 +90,7 @@ exports.auth = function(usr, pass, callback){
     					result += "No unique user to bind";
     					//res.send(result);
     	                                console.log(result);
+					callback(bool);
     				}
     
     			});   // searchRes.on("end",...)
