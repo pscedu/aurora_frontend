@@ -6,17 +6,22 @@ var myldap = require('./basicAuth.js');
 
 const port = 8000;
 
-app.use(express.static('aurora-master'));
+app.use(express.static('static'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.set('views', 'templates');
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res){
-    res.render('login', {error:""});
+    res.render('index', {error:""});
 });
 
 app.get('/login', function (req, res){
     res.render('login', {error:""});
+});
+
+app.get('/portal', function (req, res){
+    res.render('portal', {error:""});
 });
 
 app.post('/auth', function(req, res){
