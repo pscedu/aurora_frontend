@@ -3,7 +3,17 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 const { exec } = require('child_process');
+const process = require('process');
+const fs = require('fs');
 var myldap = require('./basicAuth.js');
+
+// Process Info //
+
+process.title = 'node aurora-server';
+
+fs.writeFile('aurora.pid', process.pid, function(err){
+    if (err) throw err;
+});
 
 // App Server Configuration //
 
@@ -29,7 +39,8 @@ app.get('/login', function (req, res){
 });
 
 app.get('/portal', function (req, res){
-    res.render('portal', {user:"Portal Login", stdout:""});
+    res.render('login', {error:""});
+    //res.render('portal', {user:"Portal Login", stdout:""});
 });
 
 // POST requests for other API calls //
@@ -57,9 +68,26 @@ app.get('/compute', function(req, res){
             res.render('portal', {user: app_state_user, stdout: "Job submission failed."});
             return;
         }
-        res.render('portal', {user: app_state_user, stdout: stdout});
+	else{
+            console.log(stdout);
+            res.render('portal', {user: app_state_user, stdout: stdout});
+        }
     });
 });
+
+//app.get('/run', function(req, res){
+//    exec('/usr/local/src/aurora/Job_Level0_Demo.sh', function(err, stdout, stderr){
+//        if(err){
+//            console.log(err);
+//            res.render('portal', {user: app_state_user, stdout: "Job submission failed."});
+//            return;
+//        }
+//	else{
+//            console.log(stdout);
+//            res.render('portal', {user: app_state_user, stdout: stdout});
+//        }
+//    });
+//});
 
 // Start App Server //
 
