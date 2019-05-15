@@ -43,6 +43,10 @@ app.get('/portal', function (req, res){
     //res.render('portal', {user:"Portal Login", stdout:""});
 });
 
+app.get('/demo', function (req,res){
+    res.render('compute-demo', {user: "", stdout: ""});
+});
+
 // POST requests for other API calls //
 
 app.post('/auth', function(req, res){

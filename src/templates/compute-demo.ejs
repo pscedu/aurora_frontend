@@ -86,20 +86,35 @@
   <section class="features" id="features">
     <div class="container">
       <div class="section-heading text-center">
-        <h2>Aurora-US Data Portal</h2>
+        <h2>Portal</h2>
+        <p class="text-muted">Compute in place demo</p>
         <hr>
       </div>
       <div class="row">
-        <div class="col-sm-6">
-            <p>Exploration Tools:</p>
-            <a href="#" role="button" class="btn btn-primary">cBio</a>
-            <a href="#" role="button" class="btn btn-primary">Elastic Search</a>
-        </div>
-        <div class="col-sm-6">
-            <p>Compute Tools:</p>
-            <a href="demo" role="button" class="btn btn-primary">Compute in Place</a>
-        </div>
+        <div class="container-fluid">
+       <!--INSERT DEMO NODE HERE -->
+          <fieldset>
+            <form action="/compute" method="get">
+              Select Workflow:
+              <select name="workflow" id="wfid">
+                  <option value="meth">Methylation</option>
+                  <option value="rna">RNA-Seq</option>
+              </select><br>
+              Number of Cores:
+              <input name="ncores" type="text" class="ghost-input" default="2" required><br>
+              Input Data Directory:
+              <input name="datadir" type="text" class="ghost-input" default="aurora/testdata" required><br>
+              Output Data Directory:
+              <input name="outputdir" type="text" class="ghost-input" default="aurora/demo_workspace/" required><br>
+              <input type="submit" id="submit" class="ghost-button" value="Start Compute Job">
+            </form>
+          </fieldset>
+          <div id="status">
+              <%= stdout%>
+          </div>
+         <div class="container-fluid">
       </div>
+       
     </div>
   </section>
 
